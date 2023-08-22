@@ -1,4 +1,12 @@
 import csv
+import os
+
+# Obtener el directorio del script actual
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construir la ruta absoluta al archivo CSV en la carpeta "data"
+data_file_path = os.path.join(
+    script_dir, '..', 'data', 'datos_prueba_tecnica.csv')
 
 # Cargar datos desde archivo
 
@@ -47,8 +55,7 @@ def listado_empleados(datos, nombre_empresa, salario_minimo):
 
 
 # Cargar los datos desde el archivo
-archivo_empleados = 'data\datos_prueba_tecnica.csv'
-datos_empleados = leer_csv(archivo_empleados)
+datos_empleados = leer_csv(data_file_path)
 
 # Punto 1
 hombres, mujeres = contar_empleados(datos_empleados)
